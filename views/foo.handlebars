@@ -1,0 +1,61 @@
+<body id="bod">
+
+  <div class="container" id="mCon">
+    <div class="head">
+      <img src="/images/logo.png"/>
+    </div>
+    <form id="contact" action="/check" method="GET">
+    <input type="text" id="num" name="bc" placeholder=""/><br/>
+    </form>
+		<h1 id="result">{{result}}</h1>
+    <h3 id="warning">{{warning}}</h3>
+		<p id="checks">{{checks}}</p>
+		<p id="last_check">{{difference}}</p>
+		<p id="time_diff">{{lastCheck}}</p>
+    <!-- <button class="btn btn-default" id="submit" type="submit">
+      Проверить
+    </button> -->
+  </div>
+
+	<div id="mydata">
+		<p>{{mdata}}</p>
+	</div>
+
+</body>
+
+<script language="javascript">
+
+	var num = document.getElementById('num');
+	var result = document.getElementById('result');
+	var checks = document.getElementById('checks');
+	var lastCheck = document.getElementById('last_check');
+	var timeDiff = document.getElementById('time_diff');
+	var mainWindow = document.getElementById('mCon');
+  var warning = document.getElementById('warning');
+
+	num.focus();
+	mainWindow.addEventListener("click", function() {
+		num.focus();
+	});
+	bod.addEventListener("click", function() {
+		num.focus();
+	});
+	result.style.fontWeight = '700';
+	last_check.style.fontWeight = '700';
+
+	if (result.innerHTML === 'Накладная найдена!') {
+		var c = checks.innerHTML;
+		if (c > 1) {
+			mainWindow.style.backgroundColor = '#fcf8e3';
+      checks.innerHTML = 'Количество проверок: ' + c;
+		} else {
+			mainWindow.style.backgroundColor = '#dff0d8';
+      checks.innerHTML = 'Количество проверок: ' + c;
+		}
+	} else if (result.innerHTML === 'Нет связи с сервером') {
+		mainWindow.style.backgroundColor = '#fcf8e3';
+	} else if (result.innerHTML === 'Накладная НЕ найдена!') {
+		mainWindow.style.backgroundColor = '#f2dede';
+	}
+
+</script>
