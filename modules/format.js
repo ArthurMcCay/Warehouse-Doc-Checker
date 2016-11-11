@@ -42,6 +42,12 @@ exports.dateFormat = function(dat) {
         "Nov" : "ноября",
         "Dec" : "декабря"
     };
+	
+  if (arr[1] in months) {
+    month = months[arr];
+  } else {
+    month = arr[1];
+  }
 
-	return 'В ' + time + " " + day + " " + months[arr[1]] + " " + year + 'г.';
+  return 'В ' + time + " " + day + " " + months[arr[1]] + " " + year + 'г.';
 }
