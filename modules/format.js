@@ -28,46 +28,20 @@ exports.dateFormat = function(dat) {
 	var timeArr = arr[4].split(':');
 	var time = timeArr[0] + ':' + timeArr[1];
 
-	switch (arr[1]) {
-		case 'Jan':
-			month = 'января';
-			break;
-		case 'Feb':
-			month = 'февраля';
-			break;
-		case 'Mar':
-			month = 'марта';
-			break;
-		case 'Apr':
-			month = 'апреля';
-			break;
-		case 'May':
-			month = 'мая';
-			break;
-		case 'Jun':
-			month = 'июня';
-			break;
-		case 'Jul':
-			month = 'июля';
-			break;
-		case 'Aug':
-			month = 'августа';
-			break;
-		case 'Sep':
-			month = 'сентября';
-			break;
-		case 'Oct':
-			month = 'октября';
-			break;
-		case 'Nov':
-			month = 'ноября';
-			break;
-		case 'Dec':
-			month = 'декабря';
-			break;
-		default:
-			break;
-	}
+  var months = {
+        "Jan" : "января",
+        "Feb" : "февраля",
+        "Mar" : "марта",
+        "Apr" : "апреля",
+        "May" : "мая",
+        "Jun" : "июня",
+        "Jul" : "июля",
+        "Aug" : "августа",
+        "Sep" : "сентября",
+        "Oct" : "октября",
+        "Nov" : "ноября",
+        "Dec" : "декабря"
+    };
 
-	return 'В ' + time + " " + day + " " + month + " " + year + 'г.';
+	return 'В ' + time + " " + day + " " + months[arr[1]] + " " + year + 'г.';
 }
